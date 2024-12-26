@@ -99,7 +99,7 @@ with st.expander('**Data Visualization**'):
 
   st.write('**Exam Score vs Attendance**')
   chart_data = pd.DataFrame({
-    'exam_score': np.random.randint(50, 100, size=20),  # Random exam scores between 50 and 100
+    'exam_score': np.random.randint(50, 102, size=20),  # Random exam scores between 50 and 100
     'attendance': np.random.randint(0, 101, size=20),   # Random attendance percentages between 0 and 100
   })
 
@@ -123,7 +123,7 @@ with st.expander('**Data Visualization**'):
 
   # Create the DataFrame
   chart_data = pd.DataFrame({
-    'exam_score': np.random.randint(0, 100, size=20),  # Random exam scores between 0 and 100
+    'exam_score': np.random.randint(50, 102, size=20),  # Random exam scores between 0 and 100
     'Hours_Studied': np.random.randint(0, 101, size=20),   # Random Hours Studied percentages between 0 and 100
   })
 
