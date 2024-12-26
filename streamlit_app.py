@@ -116,8 +116,8 @@ with st.expander('**Data Visualization**'):
     )
   )
 
-# Display the chart in Streamlit
-st.altair_chart(c, use_container_width=True)
+  # Display the chart in Streamlit
+  st.altair_chart(c, use_container_width=True)
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
