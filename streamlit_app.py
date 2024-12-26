@@ -94,4 +94,4 @@ with st.expander('**Data Visualization**'):
   st.pyplot(plt)
 
   exam_score_counts = df['Exam_Score'].value_counts().sort_index(ascending=False)
-  print(exam_score_counts)
+  st.dataframe(exam_score_counts)
