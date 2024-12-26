@@ -95,3 +95,28 @@ with st.expander('**Data Visualization**'):
 
   exam_score_counts = df['Exam_Score'].value_counts().sort_index(ascending=False)
   st.dataframe(exam_score_counts)
+
+  # Create a new column 'Exam_Category'
+  df['Exam Score'] = pd.cut(df['Exam_Score'], bins=[0, 70, 100], labels=['<70', '>=70'], right=False)
+
+  ax = sns.countplot(x='Exam Score', hue='Access_to_Resources', data=df)
+
+  # Iterate over the containers (bars) in the plot
+  for container in ax.containers:
+    # Iterate over the patches (individual bars) in each container
+    for i, patch in enumerate(container.get_children()):
+        # Get the height (count) of the bar
+        height = patch.get_height()
+
+        # Add the count as text annotation above the bar
+        ax.text(patch.get_x() + patch.get_width() / 2,  # x-coordinate for text
+                height + 0.1,  # y-coordinate for text (slightly above the bar)
+                int(height),  # The count to display
+                ha="center")  # Horizontal alignment of the text
+
+  # Menambahkan judul dan label sumbu
+  plt.title('Exam Score vs Access to Resources', fontsize=14)
+  plt.xlabel('Exam Score', fontsize=12)
+  plt.ylabel('Frequency', fontsize=12)
+  plt.xticks(rotation=45)
+  plt.tight_layout()  # Tata letak yang lebih rapi
