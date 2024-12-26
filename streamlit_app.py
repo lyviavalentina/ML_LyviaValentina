@@ -118,6 +118,28 @@ with st.expander('**Data Visualization**'):
 
   # Display the chart in Streamlit
   st.altair_chart(c, use_container_width=True)
+
+  st.write('**Exam Score vs Hours Studied**')
+  chart_data = pd.DataFrame({
+    'exam_score': np.random.randint(0, 100, size=20),  # Random exam scores between 50 and 100
+    'Hours_Studied': np.random.randint(0, 101, size=20),   # Random Hours Studied percentages between 0 and 100
+  })
+
+  # Define the Altair chart
+  c = (
+    alt.Chart(chart_data)
+    .mark_circle()
+    .encode(
+        x="exam_score",  # X-axis for exam scores
+        y="Hours_Studied",  # Y-axis for attendance
+        size="attendance",  # Size of the circles based on attendance
+        color="Hours_Studied",  # Color based on exam scores
+        tooltip=["Hours_Studied", "attendance"]  # Tooltips for exam_score and attendance
+    )
+  )
+
+  # Display the chart in Streamlit
+  st.altair_chart(c, use_container_width=True)
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
