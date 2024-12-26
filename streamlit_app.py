@@ -98,16 +98,7 @@ with st.expander('**Data Visualization**'):
   st.dataframe(exam_score_counts)
 
   st.write('**Exam Score vs Attendance**')
-  # Scatter plot dengan Altair
-  scatter = alt.Chart(df).mark_circle(size=60).encode(
-    x='Exam_Score',
-    y='Attendance',
-    color='species'  # Ganti dengan kolom kategori yang valid di dataset Anda
-  ).properties(
-    width=600,
-    height=400,
-    title='Exam Score vs Attendance'
-  )
+  st.scatter_chart(data=df, x='Exam_Score', y='Attendance')
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
