@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import altair as alt
 
 st.title('👩🏻‍🎓 Student Performance Factors Machine Learning')
 
@@ -97,7 +98,18 @@ with st.expander('**Data Visualization**'):
   st.dataframe(exam_score_counts)
 
   st.write('**Exam Score vs Attendance**')
-  st.scatter_chart(data=df, x='Exam_Score', y='Attendance', color='species')
+  # Scatter plot dengan Altair
+  scatter = alt.Chart(df).mark_circle(size=60).encode(
+    x='Exam_Score',
+    y='Attendance',
+    color='species'  # Ganti dengan kolom kategori yang valid di dataset Anda
+  ).properties(
+    width=600,
+    height=400,
+    title='Exam Score vs Attendance'
+  )
+
+  st.altair_chart(scatter, use_container_width=True)
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
