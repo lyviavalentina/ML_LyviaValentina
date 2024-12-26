@@ -96,6 +96,7 @@ with st.expander('**Data Visualization**'):
   exam_score_counts = df['Exam_Score'].value_counts().sort_index(ascending=False)
   st.dataframe(exam_score_counts)
 
+  st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
   df['Exam Score'] = pd.cut(df['Exam_Score'], bins=[0, 70, 100], labels=['<70', '>=70'], right=False)
 
@@ -120,3 +121,6 @@ with st.expander('**Data Visualization**'):
   plt.ylabel('Frequency', fontsize=12)
   plt.xticks(rotation=45)
   plt.tight_layout()  # Tata letak yang lebih rapi
+
+  # Menampilkan plot
+  st.pyplot(plt)
