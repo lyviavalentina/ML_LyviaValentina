@@ -34,5 +34,12 @@ with st.expander('**Data**'):
   df
 
 with st.expander('**Descriptive Statistics**'):
-  st.write('**Data Head**')
-  df.head(), st.write('**Data Head**'), df.info(), st.write('**Data Head**'), df.describe(include='all')
+  df.head(), df.info(), df.describe(include='all')
+
+  numerical_stats = df.describe()
+
+  # Categorical columns distribution
+  categorical_columns = df.select_dtypes(include=['object']).columns
+  categorical_stats = {col: df[col].value_counts(normalize=True) for col in categorical_columns}
+
+  numerical_stats, categorical_stats
