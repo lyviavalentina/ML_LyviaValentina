@@ -98,7 +98,26 @@ with st.expander('**Data Visualization**'):
   st.dataframe(exam_score_counts)
 
   st.write('**Exam Score vs Attendance**')
-  st.scatter_chart(data=df, x='Exam_Score', y='Attendance')
+  chart_data = pd.DataFrame({
+    'exam_score': np.random.randint(50, 100, size=20),  # Random exam scores between 50 and 100
+    'attendance': np.random.randint(0, 101, size=20),   # Random attendance percentages between 0 and 100
+  })
+
+  # Define the Altair chart
+  c = (
+    alt.Chart(chart_data)
+    .mark_circle()
+    .encode(
+        x="exam_score",  # X-axis for exam scores
+        y="attendance",  # Y-axis for attendance
+        size="attendance",  # Size of the circles based on attendance
+        color="exam_score",  # Color based on exam scores
+        tooltip=["exam_score", "attendance"]  # Tooltips for exam_score and attendance
+    )
+  )
+
+# Display the chart in Streamlit
+st.altair_chart(c, use_container_width=True)
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
