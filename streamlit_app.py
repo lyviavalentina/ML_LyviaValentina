@@ -92,3 +92,6 @@ with st.expander('**Data Visualization**'):
 
   # Menampilkan plot
   st.pyplot(plt)
+
+  exam_score_counts = df['Exam_Score'].value_counts().sort_index(ascending=False)
+  print(exam_score_counts)
