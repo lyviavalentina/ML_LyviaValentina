@@ -65,3 +65,33 @@ with st.expander('**Data Visualization**'):
   plt.title(f'Boxplot of {important_variable}')
   plt.xlabel(important_variable)
   st.pyplot(plt)
+
+  st.write('**Distribution of Exam Scores**')
+  # Pastikan df sudah terdefinisi dengan data Anda
+  df = pd.read_csv('path_to_your_dataset.csv')  # Ganti dengan path ke file dataset Anda
+
+  # Membuat figure dengan ukuran tertentu
+  plt.figure(figsize=(15, 6))
+
+  # Membuat diagram batang berdasarkan nilai Exam_Score
+  ax = df.Exam_Score.value_counts().sort_index().plot.bar(color='skyblue', edgecolor='black')
+
+  # Menambahkan anotasi (angka) di atas setiap batang
+  for patch in ax.patches:
+    # Mengambil ketinggian batang
+    height = patch.get_height()
+    # Menambahkan teks di atas batang
+    ax.text(patch.get_x() + patch.get_width() / 2,  # Koordinat x (di tengah batang)
+            height + 0.1,  # Koordinat y (sedikit di atas batang)
+            int(height),  # Nilai yang ditampilkan
+            ha="center", fontsize=10)  # Perataan horizontal dan ukuran font
+
+  # Menambahkan judul dan label sumbu
+  plt.title('Distribution of Exam Scores', fontsize=14)
+  plt.xlabel('Exam Score', fontsize=12)
+  plt.ylabel('Frequency', fontsize=12)
+  plt.xticks(rotation=45)
+  plt.tight_layout()  # Tata letak yang lebih rapi
+
+  # Menampilkan plot
+  st.pyplot(plt)
