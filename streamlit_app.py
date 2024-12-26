@@ -103,7 +103,7 @@ with st.expander('**Data Visualization**'):
     .mark_circle()
     .encode(
         x="Exam_Score",
-        y="Attendance",
+        y=alt.Y("Attendance", scale=alt.Scale(domain=[55, 100])),
         size="Hours_Studied",
         color="Attendance",
         tooltip=["Exam_Score", "Attendance"]
