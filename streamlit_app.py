@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sns
-import plotly as plt
+import matplotlib.pyplot as plt
 
 st.title('👩🏻‍🎓 Student Performance Factors Machine Learning')
 
@@ -37,20 +37,20 @@ with st.expander('**Descriptive Statistics**'):
   df.head(), df.info(), df.describe(include='all')
 
 with st.expander('**Data Visualization**'):
-  st.write('**Heatmap**')
-  numerical_columns = df.select_dtypes(include=['int64']).columns
-  correlation_matrix = df[numerical_columns].corr()
+    st.write('**Heatmap**')
+    numerical_columns = df.select_dtypes(include=['int64']).columns
+    correlation_matrix = df[numerical_columns].corr()
 
-  # Menampilkan korelasi yang signifikan
-  threshold = 0.5  # Atur ambang batas korelasi signifikan
-  significant_correlations = correlation_matrix[(correlation_matrix >= threshold) & (correlation_matrix != 1.0)]
+    # Menampilkan korelasi yang signifikan
+    threshold = 0.5  # Atur ambang batas korelasi signifikan
+    significant_correlations = correlation_matrix[(correlation_matrix >= threshold) & (correlation_matrix != 1.0)]
 
-  # Visualisasi heatmap
-  plt.figure(figsize=(12, 8))
-  sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', cbar=True)
-  plt.title('Correlation Matrix')
-  plt.show()
+    # Visualisasi heatmap
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', cbar=True)
+    plt.title('Correlation Matrix')  # Tambahkan judul pada heatmap
+    st.pyplot(plt)
 
-  # Menampilkan korelasi signifikan
-  print("Significant Correlations (>= 0.5):")
-  print(significant_correlations)
+    # Menampilkan korelasi signifikan di Streamlit
+    st.write("**Significant Correlations (>= 0.5):**")
+    st.dataframe(significant_correlations)
