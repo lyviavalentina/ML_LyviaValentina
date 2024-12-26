@@ -126,7 +126,7 @@ with st.expander('**Data Visualization**'):
   })
 
   # Define the Altair chart
-  c = (
+  d = (
     alt.Chart(chart_data)
     .mark_circle()
     .encode(
@@ -139,7 +139,7 @@ with st.expander('**Data Visualization**'):
   )
 
   # Display the chart in Streamlit
-  st.altair_chart(c, use_container_width=True)
+  st.altair_chart(d, use_container_width=True)
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
