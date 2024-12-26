@@ -100,27 +100,27 @@ with st.expander('**Data Visualization**'):
   # Create a new column 'Exam_Category'
   df['Exam Score'] = pd.cut(df['Exam_Score'], bins=[0, 70, 100], labels=['<70', '>=70'], right=False)
 
-  ax = sns.countplot(x='Exam Score', hue='Access_to_Resources', data=df)
+  # Membuat plot countplot dengan seaborn
+  plt.figure(figsize=(10, 6))
+  ax = sns.countplot(x='Exam Score', hue='Access_to_Resources', data=df, palette='pastel')
 
-  # Iterate over the containers (bars) in the plot
+  # Menambahkan anotasi jumlah di atas setiap batang
   for container in ax.containers:
-    # Iterate over the patches (individual bars) in each container
-    for i, patch in enumerate(container.get_children()):
-        # Get the height (count) of the bar
+    for patch in container:
+        # Mendapatkan tinggi batang
         height = patch.get_height()
+        if height > 0:  # Hanya tambahkan anotasi jika tinggi batang > 0
+            ax.text(patch.get_x() + patch.get_width() / 2,  # Posisi x
+                    height + 0.1,  # Posisi y sedikit di atas batang
+                    int(height),  # Nilai yang ditampilkan
+                    ha='center', va='bottom', fontsize=9)  # Alignment dan ukuran font
 
-        # Add the count as text annotation above the bar
-        ax.text(patch.get_x() + patch.get_width() / 2,  # x-coordinate for text
-                height + 0.1,  # y-coordinate for text (slightly above the bar)
-                int(height),  # The count to display
-                ha="center")  # Horizontal alignment of the text
-
-  # Menambahkan judul dan label sumbu
+  # Menambahkan judul dan label
   plt.title('Exam Score vs Access to Resources', fontsize=14)
-  plt.xlabel('Exam Score', fontsize=12)
-  plt.ylabel('Frequency', fontsize=12)
-  plt.xticks(rotation=45)
-  plt.tight_layout()  # Tata letak yang lebih rapi
+  plt.xlabel('Exam Score Category', fontsize=12)
+  plt.ylabel('Count', fontsize=12)
+  plt.legend(title='Access to Resources', loc='upper right')
+  plt.tight_layout()
 
   # Menampilkan plot
   st.pyplot(plt)
