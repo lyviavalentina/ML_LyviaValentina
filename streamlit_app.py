@@ -49,3 +49,5 @@ with st.expander('**Data Visualization**'):
 
   # Display the first few rows of the encoded dataset and column info
   data_encoded.head(), data_encoded.info()
+  
+  df.head(), df.info(), df.describe(include='all')
