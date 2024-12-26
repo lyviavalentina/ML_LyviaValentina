@@ -34,4 +34,9 @@ with st.expander('**Data**'):
   df
 
 with st.expander('**Descriptive Statistics**'):
-  df.head(), df.info(), df.describe(include='all')
+  st.write('**Data Head**')
+  df.head()
+  st.write('**Data Info**')
+  df.info()
+  st.write('**Data Describe**')
+  df.describe(include='all')
