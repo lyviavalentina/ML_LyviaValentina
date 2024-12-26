@@ -33,21 +33,5 @@ with st.expander('**Data**'):
   df['Distance_from_Home'] = df['Distance_from_Home'].replace({0: 'Near', 1: 'Moderate', 2: 'Far'})
   df
 
-with st.expander('**Data Visualization**'):
-  # Identify categorical columns (object type)
-  categorical_columns = df.select_dtypes(include=['object']).columns
-
-  # Apply Label Encoding to each categorical column
-  from sklearn.preprocessing import LabelEncoder
-
-  data_encoded = df.copy()
-  label_encoders = {}
-  for column in categorical_columns:
-    le = LabelEncoder()
-    data_encoded[column] = le.fit_transform(data_encoded[column].astype(str))
-    label_encoders[column] = le
-
-  # Display the first few rows of the encoded dataset and column info
-  data_encoded.head(), data_encoded.info()
-  
+with st.expander('**Descriptive Statistics**'):
   df.head(), df.info(), df.describe(include='all')
