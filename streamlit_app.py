@@ -35,8 +35,4 @@ with st.expander('**Data**'):
 
 with st.expander('**Descriptive Statistics**'):
   st.write('**Data Head**')
-  df.head(include='all')
-  st.write('**Data Info**')
-  df.info(include='all')
-  st.write('**Data Describe**')
-  df.describe(include='all')
+  df.head(), st.write('**Data Head**'), df.info(), st.write('**Data Head**'), df.describe(include='all')
