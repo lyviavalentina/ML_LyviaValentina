@@ -67,9 +67,6 @@ with st.expander('**Data Visualization**'):
   st.pyplot(plt)
 
   st.write('**Distribution of Exam Scores**')
-  # Pastikan df sudah terdefinisi dengan data Anda
-  df = pd.read_csv('path_to_your_dataset.csv')  # Ganti dengan path ke file dataset Anda
-
   # Membuat figure dengan ukuran tertentu
   plt.figure(figsize=(15, 6))
 
