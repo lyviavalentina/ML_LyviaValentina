@@ -35,18 +35,17 @@ with st.expander('**Descriptive Statistics**'):
 
 with st.expander('**Data Visualization**'):
   st.write('**Heatmap**')
-    numerical_columns = df.select_dtypes(include=['int64']).columns
-    correlation_matrix = df[numerical_columns].corr()
+  numerical_columns = df.select_dtypes(include=['int64']).columns
+  correlation_matrix = df[numerical_columns].corr()
+  # Menampilkan korelasi yang signifikan
+  threshold = 0.5  # Atur ambang batas korelasi signifikan
+  significant_correlations = correlation_matrix[(correlation_matrix >= threshold) & (correlation_matrix != 1.0)]
 
-    # Menampilkan korelasi yang signifikan
-    threshold = 0.5  # Atur ambang batas korelasi signifikan
-    significant_correlations = correlation_matrix[(correlation_matrix >= threshold) & (correlation_matrix != 1.0)]
-
-    # Visualisasi heatmap
-    plt.figure(figsize=(12, 8))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', cbar=True)
-    plt.title('Correlation Matrix')  # Tambahkan judul pada heatmap
-    st.pyplot(plt)
+  # Visualisasi heatmap
+  plt.figure(figsize=(12, 8))
+  sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', cbar=True)
+  plt.title('Correlation Matrix')  # Tambahkan judul pada heatmap
+  st.pyplot(plt)
 
   # Pilih variabel penting (contoh: "Exam_Score")
   important_variable = 'Exam_Score'
