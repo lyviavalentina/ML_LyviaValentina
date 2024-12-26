@@ -158,7 +158,7 @@ with st.expander('**Data Visualization**'):
   # Menampilkan plot
   st.pyplot(plt)
 
-  f = df.sort_values(by=['Student_ID', 'Previous_Score'])  # Sort by Student_ID and then Previous_Score
+  f = df.sort_values(by=['Exam_Score', 'Previous_Score'])  # Sort by Student_ID and then Previous_Score
 
   # Define the Altair chart
   f = (
@@ -167,8 +167,8 @@ with st.expander('**Data Visualization**'):
     .encode(
         x="Previous_Score",
         y="Exam_Score",
-        color="Student_ID",  # Color lines by Student_ID
-        tooltip=["Previous_Score", "Exam_Score", "Student_ID"]
+        color="Exam_Score",  # Color lines by Student_ID
+        tooltip=["Previous_Score", "Exam_Score"]
     )
   )
 
