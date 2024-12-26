@@ -108,8 +108,6 @@ with st.expander('**Data Visualization**'):
     height=400,
     title='Exam Score vs Attendance'
   )
-
-  st.altair_chart(scatter, use_container_width=True)
   
   st.write('**Exam Score vs Access to Resources**')
   # Create a new column 'Exam_Category'
