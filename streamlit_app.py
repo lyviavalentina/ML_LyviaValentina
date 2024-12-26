@@ -36,10 +36,21 @@ with st.expander('**Data**'):
 with st.expander('**Descriptive Statistics**'):
   df.head(), df.info(), df.describe(include='all')
 
-  numerical_stats = df.describe()
+with st.expander('**Data Visualization**'):
+  st.write('**Heatmap**')
+  numerical_columns = df.select_dtypes(include=['int64']).columns
+  correlation_matrix = df[numerical_columns].corr()
 
-  # Categorical columns distribution
-  categorical_columns = df.select_dtypes(include=['object']).columns
-  categorical_stats = {col: df[col].value_counts(normalize=True) for col in categorical_columns}
+  # Menampilkan korelasi yang signifikan
+  threshold = 0.5  # Atur ambang batas korelasi signifikan
+  significant_correlations = correlation_matrix[(correlation_matrix >= threshold) & (correlation_matrix != 1.0)]
 
-  numerical_stats, categorical_stats
+  # Visualisasi heatmap
+  plt.figure(figsize=(12, 8))
+  sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', cbar=True)
+  plt.title('Correlation Matrix')
+  plt.show()
+
+  # Menampilkan korelasi signifikan
+  print("Significant Correlations (>= 0.5):")
+  print(significant_correlations)
