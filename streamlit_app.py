@@ -98,21 +98,15 @@ with st.expander('**Data Visualization**'):
   st.dataframe(exam_score_counts)
 
   st.write('**Exam Score vs Attendance**')
-  chart_data = pd.DataFrame({
-    'exam_score': np.random.randint(50, 102, size=20),  # Random exam scores between 50 and 100
-    'attendance': np.random.randint(0, 101, size=20),   # Random attendance percentages between 0 and 100
-  })
-
-  # Define the Altair chart
   c = (
-    alt.Chart(chart_data)
+    alt.Chart(df)
     .mark_circle()
     .encode(
-        x="exam_score",  # X-axis for exam scores
-        y="attendance",  # Y-axis for attendance
-        size="attendance",  # Size of the circles based on attendance
-        color="exam_score",  # Color based on exam scores
-        tooltip=["exam_score", "attendance"]  # Tooltips for exam_score and attendance
+        x="Exam_Score",
+        y="Attendance",
+        size="Hours_Studied",
+        color="Attendance",
+        tooltip=["Exam_Score", "Attendance"]
     )
   )
 
@@ -120,23 +114,15 @@ with st.expander('**Data Visualization**'):
   st.altair_chart(c, use_container_width=True)
 
   st.write('**Exam Score vs Hours Studied**')
-
-  # Create the DataFrame
-  chart_data = pd.DataFrame({
-    'exam_score': np.random.randint(50, 102, size=20),  # Random exam scores between 0 and 100
-    'Hours_Studied': np.random.randint(0, 101, size=20),   # Random Hours Studied percentages between 0 and 100
-  })
-
-  # Define the Altair chart
   d = (
-    alt.Chart(chart_data)
+    alt.Chart(df)
     .mark_circle()
     .encode(
-        x="exam_score",  # X-axis for exam scores
-        y="Hours_Studied",  # Y-axis for hours studied
-        size="Hours_Studied",  # Size of the circles based on hours studied
-        color="exam_score",  # Color based on exam scores
-        tooltip=["exam_score", "Hours_Studied"]  # Tooltips for exam_score and hours studied
+        x="Exam_Score",
+        y="Hours_Studied",
+        size="Hours_Studied",
+        color="Exam_Score",
+        tooltip=["Exam_Score", "Hours_Studied"]
     )
   )
 
