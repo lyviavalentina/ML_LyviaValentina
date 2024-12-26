@@ -17,9 +17,6 @@ with st.expander('**Data**'):
   df['Parental_Education_Level'] = df['Parental_Education_Level'].replace({'High School': 0, 'College': 1, 'Postgraduate': 2})
   df['Distance_from_Home'] = df['Distance_from_Home'].replace({'Near': 0, 'Moderate': 1, 'Far': 2})
 
-  mean1 = df['Teacher_Quality'].mean()
-  df['Teacher_Quality'] = df['Teacher_Quality'].fillna(mean1)
-
   mean2 = df['Parental_Education_Level'].mean()
   df['Parental_Education_Level'] = df['Parental_Education_Level'].fillna(mean2)
 
@@ -37,7 +34,7 @@ with st.expander('**Descriptive Statistics**'):
   df.head(), df.info(), df.describe(include='all')
 
 with st.expander('**Data Visualization**'):
-    st.write('**Heatmap**')
+  st.write('**Heatmap**')
     numerical_columns = df.select_dtypes(include=['int64']).columns
     correlation_matrix = df[numerical_columns].corr()
 
@@ -51,6 +48,21 @@ with st.expander('**Data Visualization**'):
     plt.title('Correlation Matrix')  # Tambahkan judul pada heatmap
     st.pyplot(plt)
 
-    # Menampilkan korelasi signifikan di Streamlit
-    st.write("**Significant Correlations (>= 0.5):**")
-    st.dataframe(significant_correlations)
+  # Pilih variabel penting (contoh: "Exam_Score")
+  important_variable = 'Exam_Score'
+  st.write('**Distribution Graph**')
+  # Grafik Distribusi
+  plt.figure(figsize=(10, 6))
+  sns.histplot(df[important_variable], kde=True, bins=30, color='blue')
+  plt.title(f'Distribution of {important_variable}')
+  plt.xlabel(important_variable)
+  plt.ylabel('Frequency')
+  st.pyplot(plt)
+  
+  st.write('**Boxplot**')
+  # Boxplot
+  plt.figure(figsize=(8, 6))
+  sns.boxplot(x=df[important_variable], color='orange') # Changed line
+  plt.title(f'Boxplot of {important_variable}')
+  plt.xlabel(important_variable)
+  st.pyplot(plt)
