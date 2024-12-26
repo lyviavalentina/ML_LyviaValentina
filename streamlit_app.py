@@ -124,3 +124,6 @@ with st.expander('**Data Visualization**'):
 
   # Menampilkan plot
   st.pyplot(plt)
+
+with st.sidebar:
+  st.header('Input features')
