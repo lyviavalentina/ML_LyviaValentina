@@ -19,7 +19,8 @@ with st.expander('**Data**'):
   df['Distance_from_Home'] = df['Distance_from_Home'].replace({'Near': 0, 'Moderate': 1, 'Far': 2})
 
   mean1 = df['Teacher_Quality'].mean()
-  df['Teacher_Quality'] = df['Teacher_Quality'].fillna(mean1)
+  mean1_rounded = round(mean1)
+  df['Teacher_Quality'] = df['Teacher_Quality'].fillna(mean1_rounded)
 
   mean2 = df['Parental_Education_Level'].mean()
   df['Parental_Education_Level'] = df['Parental_Education_Level'].fillna(mean2)
