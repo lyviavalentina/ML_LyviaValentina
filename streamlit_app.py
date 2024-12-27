@@ -234,7 +234,7 @@ with st.sidebar:
     max_value=100,
     value=(65, 95)  # Rentang default sebagai tuple (min, max)
 )
-  Parental_Involvement = st.selectbox('Parental Involvement', (' ', 'Low', 'Medium', 'High'))
+  Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
   Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
   Sleep_Hours = st.slider('Sleep Hours Range', 4, 10, (5,9))
