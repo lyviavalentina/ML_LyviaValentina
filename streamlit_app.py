@@ -237,16 +237,16 @@ with st.sidebar:
   Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
   Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
-  Sleep_Hours = st.slider('Sleep Hours', 4, 10, (5,9))
-  Previous_Score = st.slider('Previous Score', 50, 100, (55, 95))
+  Sleep_Hours = st.slider('Sleep Hours Range', 4, 10, (5,9))
+  Previous_Scores = st.slider('Previous Scores Range', 50, 100, (55, 95))
   Motivation_Level = st.selectbox('Motivation Level', ('Low', 'Medium', 'High'))
   Internet_Access = st.selectbox('Internet Access', ('Yes', 'No'))
-  Tutoring_Sessions = st.slider('Tutoring Sessions', 0, 8, (1, 7))
+  Tutoring_Sessions = st.slider('Tutoring Sessions Range', 0, 8, (1, 7))
   Family_Income = st.selectbox('Family Income', ('Low', 'Medium', 'High'))
   Teacher_Quality = st.selectbox('Teacher Quality', ('Low', 'Medium', 'High'))
   School_Type = st.selectbox('School Type', ('Public', 'Private'))
   Peer_Influence = st.selectbox('Peer Influence', ('Positive', 'Neutral', 'Negative'))
-  Physical_Activity = st.slider('Physical Activity', 0, 6, (1, 5))
+  Physical_Activity = st.slider('Physical Activity Range', 0, 6, (1, 5))
   Learning_Disabilities = st.selectbox('Learning Disabilities', ('Yes', 'No'))
   Parental_Education_Level = st.selectbox('Parental Education Level', ('High School', 'College', 'Postgraduate'))
   Distance_from_Home = st.selectbox('Distance from Home', ('Near', 'Moderate', 'Far'))
@@ -258,7 +258,7 @@ with st.sidebar:
           'Access_to_Resources': Access_to_Resources,
           'Extracurricular_Activities': Extracurricular_Activities,
           'Sleep_Hours': Sleep_Hours,
-          'Previous_Score': Previous_Score,
+          'Previous_Scores': Previous_Scores,
           'Motivation_Level': Motivation_Level,
           'Internet_Access': Internet_Access,
           'Tutoring_Sessions': Tutoring_Sessions,
@@ -286,7 +286,7 @@ with st.sidebar:
 
   filtered_df = filtered_df[(filtered_df['Sleep_Hours'] >= Sleep_Hours[0]) & (df['Sleep_Hours'] <= Sleep_Hours[1])]
 
-  filtered_df = filtered_df[(filtered_df['Previous_Score'] >= Previous_Score[0]) & (df['Previous_Score'] <= Previous_Score[1])]
+  filtered_df = filtered_df[(filtered_df['Previous_Scores'] >= Previous_Scores[0]) & (df['Previous_Scores'] <= Previous_Scores[1])]
   
   if Motivation_Level != 'All':
     filtered_df = filtered_df[filtered_df['Motivation_Level'] == Motivation_Level]
