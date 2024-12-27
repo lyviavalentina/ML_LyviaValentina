@@ -23,10 +23,12 @@ with st.expander('**Data**'):
   df['Teacher_Quality'] = df['Teacher_Quality'].fillna(mean1_rounded)
 
   mean2 = df['Parental_Education_Level'].mean()
-  df['Parental_Education_Level'] = df['Parental_Education_Level'].fillna(mean2)
+  mean2_rounded = round(mean2)
+  df['Parental_Education_Level'] = df['Parental_Education_Level'].fillna(mean2_rounded)
 
   mean3 = df['Distance_from_Home'].mean()
-  df['Distance_from_Home'] = df['Distance_from_Home'].fillna(mean3)
+  mean3_rounded = round(mean3)
+  df['Distance_from_Home'] = df['Distance_from_Home'].fillna(mean3_rounded)
 
   df.isnull().any()
 
