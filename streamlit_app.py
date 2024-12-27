@@ -224,12 +224,15 @@ with st.expander('**Data Visualization**'):
 
 with st.sidebar:
   st.header('Input features')
-  Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
+  Hours_Studied = st.slider('Hours Studied Range', 
+                            min_value=1,
+                            max_value=44, 
+                            value=20)
   Attendance = st.slider(
-    "Filter Attendance Range",
+    "Attendance Range",
     min_value=60,
     max_value=100,
-    value=(60, 100)  # Rentang default sebagai tuple (min, max)
+    value=(65, 95)  # Rentang default sebagai tuple (min, max)
 )
   Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
@@ -270,6 +273,8 @@ with st.sidebar:
           'Gender': Gender}
   filtered_df = df.copy()
 
+  filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied[0]) & (df['Hours_Studied'] <= Hours_Studied[1])]
+  
   # Filter by teacher quality
   if Teacher_Quality != 'All':
     filtered_df = filtered_df[filtered_df['Teacher_Quality'] == Teacher_Quality]
@@ -280,7 +285,9 @@ with st.sidebar:
 
   # Filter by distance from home
   if Distance_from_Home != 'All':
-    filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (df['Attendance'] <= Attendance[1])]
+    filtered_df = filtered_df[filtered_df['Distance_from_Home'] == Distance_from_Home]
+    
+  filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (df['Attendance'] <= Attendance[1])]
 
   # Display the filtered DataFrame
 st.write('### Filtered Data', filtered_df)
