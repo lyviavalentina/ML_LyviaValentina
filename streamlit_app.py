@@ -257,8 +257,13 @@ with st.sidebar:
           'Distance_from_Home': Distance_from_Home,
           'Gender': Gender}
   input_df = pd.DataFrame(data, index=[0])
-  X = df.drop(columns=['Exam_Score'])  # Contoh, jika 'Exam_Score' adalah target
-  input_penguins = pd.concat([input_df, X], axis=0)
+  X_raw = df.drop(columns=['Exam_Score'])  # Contoh, jika 'Exam_Score' adalah target
+  input_penguins = pd.concat([input_df, X_raw], axis=0)
+  
+with st.expander('Input features'):
+  st.write('**Input penguins**')
+  input_df
+  st.write('**Combined penguins data**')
+  input_penguins
 
-input_df
 
