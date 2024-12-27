@@ -245,7 +245,8 @@ with st.sidebar:
   Gender = st.selectbox('Gender', ('Male', 'Female'))
 
   data = {'Hours_Studied': Hours_Studied,
-          'Attendance': Attendance,'Parental_Involvement': Parental_Involvement,
+          'Attendance': Attendance,
+          'Parental_Involvement': Parental_Involvement,
           'Access_to_Resources': Access_to_Resources,
           'Extracurricular_Activities': Extracurricular_Activities,
           'Sleep_Hours': Sleep_Hours,
