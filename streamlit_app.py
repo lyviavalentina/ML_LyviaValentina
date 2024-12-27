@@ -225,7 +225,12 @@ with st.expander('**Data Visualization**'):
 with st.sidebar:
   st.header('Input features')
   Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
-  Attendance = st.slider('Attendance', 60, 100, 80)
+  Attendance = st.slider(
+    "Filter Attendance Range",
+    min_value=60,
+    max_value=100,
+    value=(60, 100)  # Rentang default sebagai tuple (min, max)
+)
   Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
   Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
