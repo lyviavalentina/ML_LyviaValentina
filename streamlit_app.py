@@ -227,7 +227,7 @@ with st.sidebar:
   Hours_Studied = st.slider('Hours Studied Range', 
                             min_value=1,
                             max_value=44, 
-                            value=20)
+                            value=(5,40))
   Attendance = st.slider(
     "Attendance Range",
     min_value=60,
