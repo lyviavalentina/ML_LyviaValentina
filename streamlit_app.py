@@ -264,12 +264,9 @@ with st.sidebar:
           'Gender': Gender}
   filtered_df = df.copy()
 
-  teacher_quality_mapping = {'Low': 0, 'Medium': 1, 'High': 2}
-
   # Filter by teacher quality
-  if teacher_quality != 'All':
-    mapped_value = teacher_quality_mapping[teacher_quality]  # Konversi input pengguna ke nilai numerik
-    filtered_df = filtered_df[filtered_df['Teacher_Quality'] == mapped_value]
+  if Teacher_Quality != 'All':
+    filtered_df = filtered_df[filtered_df['Teacher_Quality'] == Teacher_Quality]
 
   # Filter by parental education level
   if parental_education != 'All':
