@@ -236,4 +236,4 @@ with st.sidebar:
   Learning_Disabilities = st.selectbox('Learning Disabilities', ('Yes', 'No'))
   Parental_Education_Level = st.selectbox('Parental Education Level', ('High School', 'College', 'Postgraduate'))
   Distance_from_Home = st.selectbox('Distance from Home', ('Near', 'Moderate', 'Far'))
-  Gender = = st.selectbox('Gender', ('Male', 'Female'))
+  Gender = st.selectbox('Gender', ('Male', 'Female'))
