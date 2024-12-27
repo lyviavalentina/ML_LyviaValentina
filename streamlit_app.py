@@ -18,6 +18,9 @@ with st.expander('**Data**'):
   df['Parental_Education_Level'] = df['Parental_Education_Level'].replace({'High School': 0, 'College': 1, 'Postgraduate': 2})
   df['Distance_from_Home'] = df['Distance_from_Home'].replace({'Near': 0, 'Moderate': 1, 'Far': 2})
 
+  mean1 = df['Teacher_Quality'].mean()
+  df['Teacher_Quality'] = df['Teacher_Quality'].fillna(mean1)
+
   mean2 = df['Parental_Education_Level'].mean()
   df['Parental_Education_Level'] = df['Parental_Education_Level'].fillna(mean2)
 
