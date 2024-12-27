@@ -238,27 +238,26 @@ with st.sidebar:
   Tutoring_Sessions = st.slider('Tutoring Sessions', 0, 8, 4)
   Physical_Activity = st.slider('Physical Activity', 0, 6, 3)
 
-  data = {'Parental_Involvement': Parental_Involvement,
+  data = {'Hours_Studied': Hours_Studied,
+          'Attendance': Attendance,'Parental_Involvement': Parental_Involvement,
           'Access_to_Resources': Access_to_Resources,
           'Extracurricular_Activities': Extracurricular_Activities,
+          'Sleep_Hours': Sleep_Hours,
+          'Previous_Score': Previous_Score,
           'Motivation_Level': Motivation_Level,
           'Internet_Access': Internet_Access,
+          'Tutoring_Sessions': Tutoring_Sessions,
           'Family_Income': Family_Income,
           'Teacher_Quality': Teacher_Quality,
           'School_Type': School_Type,
           'Peer_Influence': Peer_Influence,
+          'Physical_Activity': Physical_Activity,
           'Learning_Disabilities': Learning_Disabilities,
           'Parental_Education_Level': Parental_Education_Level,
           'Distance_from_Home': Distance_from_Home,
-          'Gender': Gender,
-          'Hours_Studied': Hours_Studied,
-          'Attendance': Attendance,
-          'Sleep_Hours': Sleep_Hours,
-          'Previous_Score': Previous_Score,
-          'Tutoring_Sessions': Tutoring_Sessions,
-          'Physical_Activity': Physical_Activity}
+          'Gender': Gender}
   try:
-    input_df = pd.DataFrame([data])
+    input_df = pd.DataFrame(data, index=[0])
     st.write("DataFrame created successfully:", input_df)
   except Exception as e:
     st.write("Error creating DataFrame:", e)
