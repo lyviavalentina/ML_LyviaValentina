@@ -257,6 +257,7 @@ with st.sidebar:
           'Distance_from_Home': Distance_from_Home,
           'Gender': Gender}
   input_df = pd.DataFrame(data, index=[0])
+  X = df.drop(columns=['Exam_Score'])  # Contoh, jika 'Exam_Score' adalah target
   input_penguins = pd.concat([input_df, X], axis=0)
 
   input_penguins
