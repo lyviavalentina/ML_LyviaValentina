@@ -257,7 +257,8 @@ with st.sidebar:
           'Previous_Score': Previous_Score,
           'Tutoring_Sessions': Tutoring_Sessions,
           'Physical_Activity': Physical_Activity}
-  input_df = pd.DataFrame(data, index[0])
-  input_penguins = pd.concat([input_df, X], axis=0)
-
-  input_df
+  try:
+    input_df = pd.DataFrame([data])
+    st.write("DataFrame created successfully:", input_df)
+  except Exception as e:
+    st.write("Error creating DataFrame:", e)
