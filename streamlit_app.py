@@ -218,8 +218,8 @@ with st.expander('**Data Visualization**'):
 
 with st.sidebar:
   st.header('Input features')
-  Hours_Studied = st.slider('Hours Studied', 1, 44, 19.9753)
-  Attendance = st.slider('Attendance', 60, 100, 79.9774)
+  Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
+  Attendance = st.slider('Attendance', 60, 100, 80)
   Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
   
