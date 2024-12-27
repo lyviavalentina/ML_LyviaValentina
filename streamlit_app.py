@@ -161,10 +161,11 @@ with st.expander('**Data Visualization**'):
   st.write('**Exam Score vs Parental Involvement**')
   # Create a new column 'Exam_Category'
   df['Exam Score'] = pd.cut(df['Exam_Score'], bins=[0, 70, 100], labels=['<70', '>=70'], right=False)
+  df['Previous Scores'] = pd.cut(df['Previous_Scores'], bins=[0, 70, 100], labels=['<70', '>=70'], right=False)
 
   # Membuat plot countplot dengan seaborn
   plt.figure(figsize=(10, 6))
-  ax = sns.countplot(x='Exam Score', hue='Parental_Involvement', data=df, palette='pastel')
+  ax = sns.countplot(x='Exam Score', hue='Previous Scores', data=df, palette='pastel')
 
   # Menambahkan anotasi jumlah di atas setiap batang
   for container in ax.containers:
@@ -178,10 +179,10 @@ with st.expander('**Data Visualization**'):
                     ha='center', va='bottom', fontsize=9)  # Alignment dan ukuran font
 
   # Menambahkan judul dan label
-  plt.title('Exam Score vs Parental Involvement', fontsize=14)
+  plt.title('Exam Score vs Previous Scores', fontsize=14)
   plt.xlabel('Exam Score Category', fontsize=12)
   plt.ylabel('Count', fontsize=12)
-  plt.legend(title='Parental Involvement', loc='upper right')
+  plt.legend(title='Previous Scores', loc='upper right')
   plt.tight_layout()
 
   # Menampilkan plot
