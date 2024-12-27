@@ -237,16 +237,16 @@ with st.sidebar:
   Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
   Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
-  Sleep_Hours = st.slider('Sleep Hours', 4, 10, 7)
-  Previous_Score = st.slider('Previous Score', 50, 100, 75)
+  Sleep_Hours = st.slider('Sleep Hours', 4, 10, (5,9))
+  Previous_Score = st.slider('Previous Score', 50, 100, (55, 95))
   Motivation_Level = st.selectbox('Motivation Level', ('Low', 'Medium', 'High'))
   Internet_Access = st.selectbox('Internet Access', ('Yes', 'No'))
-  Tutoring_Sessions = st.slider('Tutoring Sessions', 0, 8, 4)
+  Tutoring_Sessions = st.slider('Tutoring Sessions', 0, 8, (1, 7))
   Family_Income = st.selectbox('Family Income', ('Low', 'Medium', 'High'))
   Teacher_Quality = st.selectbox('Teacher Quality', ('Low', 'Medium', 'High'))
   School_Type = st.selectbox('School Type', ('Public', 'Private'))
   Peer_Influence = st.selectbox('Peer Influence', ('Positive', 'Neutral', 'Negative'))
-  Physical_Activity = st.slider('Physical Activity', 0, 6, 3)
+  Physical_Activity = st.slider('Physical Activity', 0, 6, (1, 5))
   Learning_Disabilities = st.selectbox('Learning Disabilities', ('Yes', 'No'))
   Parental_Education_Level = st.selectbox('Parental Education Level', ('High School', 'College', 'Postgraduate'))
   Distance_from_Home = st.selectbox('Distance from Home', ('Near', 'Moderate', 'Far'))
@@ -274,10 +274,45 @@ with st.sidebar:
   filtered_df = df.copy()
 
   filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied[0]) & (df['Hours_Studied'] <= Hours_Studied[1])]
+
+  if Parental_Involvement != 'All':
+    filtered_df = filtered_df[filtered_df['Parental_Involvement'] == Parental_Involvement]
+
+  if Access_to_Resources != 'All':
+    filtered_df = filtered_df[filtered_df['Access_to_Resources'] == Access_to_Resources]
+
+  if Extracurricular_Activities != 'All':
+    filtered_df = filtered_df[filtered_df['Extracurricular_Activities'] == Extracurricular_Activities]
+
+  filtered_df = filtered_df[(filtered_df['Sleep_Hours'] >= Sleep_Hours[0]) & (df['Sleep_Hours'] <= Sleep_Hours[1])]
+
+  filtered_df = filtered_df[(filtered_df['Previous_Score'] >= Previous_Score[0]) & (df['Previous_Score'] <= Previous_Score[1])]
   
+  if Motivation_Level != 'All':
+    filtered_df = filtered_df[filtered_df['Motivation_Level'] == Motivation_Level]
+
+  if Internet_Access != 'All':
+    filtered_df = filtered_df[filtered_df['Internet_Access'] == Internet_Access]
+
+  filtered_df = filtered_df[(filtered_df['Tutoring_Sessions'] >= Tutoring_Sessions[0]) & (df['Tutoring_Sessions'] <= Tutoring_Sessions[1])]
+  
+  if Family_Income != 'All':
+    filtered_df = filtered_df[filtered_df['Family_Income'] == Family_Income]
+
   # Filter by teacher quality
   if Teacher_Quality != 'All':
     filtered_df = filtered_df[filtered_df['Teacher_Quality'] == Teacher_Quality]
+
+  if School_Type != 'All':
+    filtered_df = filtered_df[filtered_df['School_Type'] == School_Type]
+
+  if Peer_Influence != 'All':
+    filtered_df = filtered_df[filtered_df['Peer_Influence'] == Peer_Influence]
+
+  filtered_df = filtered_df[(filtered_df['Physical_Activity'] >= Physical_Activity[0]) & (df['Physical_Activity'] <= Physical_Activity[1])]
+
+  if Learning_Disabilities != 'All':
+    filtered_df = filtered_df[filtered_df['Learning_Disabilities'] == Learning_Disabilities]
 
   # Filter by parental education level
   if Parental_Education_Level != 'All':
@@ -286,7 +321,10 @@ with st.sidebar:
   # Filter by distance from home
   if Distance_from_Home != 'All':
     filtered_df = filtered_df[filtered_df['Distance_from_Home'] == Distance_from_Home]
-    
+
+  if Gender != 'All':
+    filtered_df = filtered_df[filtered_df['Gender'] == Gender]
+   
   filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (df['Attendance'] <= Attendance[1])]
 
   # Display the filtered DataFrame
