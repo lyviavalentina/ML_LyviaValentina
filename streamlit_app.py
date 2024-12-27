@@ -218,25 +218,25 @@ with st.expander('**Data Visualization**'):
 
 with st.sidebar:
   st.header('Input features')
+  Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
+  Attendance = st.slider('Attendance', 60, 100, 80)
   Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
   Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
   Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
+  Sleep_Hours = st.slider('Sleep Hours', 4, 10, 7)
+  Previous_Score = st.slider('Previous Score', 50, 100, 75)
   Motivation_Level = st.selectbox('Motivation Level', ('Low', 'Medium', 'High'))
   Internet_Access = st.selectbox('Internet Access', ('Yes', 'No'))
+  Tutoring_Sessions = st.slider('Tutoring Sessions', 0, 8, 4)
   Family_Income = st.selectbox('Family Income', ('Low', 'Medium', 'High'))
   Teacher_Quality = st.selectbox('Teacher Quality', ('Low', 'Medium', 'High'))
   School_Type = st.selectbox('School Type', ('Public', 'Private'))
   Peer_Influence = st.selectbox('Peer Influence', ('Positive', 'Neutral', 'Negative'))
+  Physical_Activity = st.slider('Physical Activity', 0, 6, 3)
   Learning_Disabilities = st.selectbox('Learning Disabilities', ('Yes', 'No'))
   Parental_Education_Level = st.selectbox('Parental Education Level', ('High School', 'College', 'Postgraduate'))
   Distance_from_Home = st.selectbox('Distance from Home', ('Near', 'Moderate', 'Far'))
   Gender = st.selectbox('Gender', ('Male', 'Female'))
-  Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
-  Attendance = st.slider('Attendance', 60, 100, 80)
-  Sleep_Hours = st.slider('Sleep Hours', 4, 10, 7)
-  Previous_Score = st.slider('Previous Score', 50, 100, 75)
-  Tutoring_Sessions = st.slider('Tutoring Sessions', 0, 8, 4)
-  Physical_Activity = st.slider('Physical Activity', 0, 6, 3)
 
   data = {'Hours_Studied': Hours_Studied,
           'Attendance': Attendance,'Parental_Involvement': Parental_Involvement,
@@ -256,8 +256,7 @@ with st.sidebar:
           'Parental_Education_Level': Parental_Education_Level,
           'Distance_from_Home': Distance_from_Home,
           'Gender': Gender}
-  try:
-    input_df = pd.DataFrame(data, index=[0])
-    st.write("DataFrame created successfully:", input_df)
-  except Exception as e:
-    st.write("Error creating DataFrame:", e)
+  input_df = pd.DataFrame(data, index=[0])
+  input_penguins = pd.concat([input_df, X], axis=0)
+
+  input_penguins
