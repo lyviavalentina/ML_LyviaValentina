@@ -277,9 +277,6 @@ with st.sidebar:
   if Distance_from_Home != 'All':
     filtered_df = filtered_df[filtered_df['Distance_from_Home'] == Distance_from_Home]
 
-  # Filter by attendance range
-  filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (filtered_df['Attendance'] <= Attendance[1])]
-
   # Display the filtered DataFrame
 st.write('### Filtered Data', filtered_df)
 
