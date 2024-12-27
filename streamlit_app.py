@@ -269,15 +269,15 @@ with st.sidebar:
     filtered_df = filtered_df[filtered_df['Teacher_Quality'] == Teacher_Quality]
 
   # Filter by parental education level
-  if parental_education != 'All':
-    filtered_df = filtered_df[filtered_df['Parental_Education_Level'] == parental_education]
+  if Parental_Education_Level != 'All':
+    filtered_df = filtered_df[filtered_df['Parental_Education_Level'] == Parental_Education_Level]
 
   # Filter by distance from home
-  if distance_from_home != 'All':
-    filtered_df = filtered_df[filtered_df['Distance_from_Home'] == distance_from_home]
+  if Distance_from_Home != 'All':
+    filtered_df = filtered_df[filtered_df['Distance_from_Home'] == Distance_from_Home]
 
   # Filter by attendance range
-  filtered_df = filtered_df[(filtered_df['Attendance'] >= attendance[0]) & (filtered_df['Attendance'] <= attendance[1])]
+  filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (filtered_df['Attendance'] <= Attendance[1])]
 
   # Display the filtered DataFrame
 st.write('### Filtered Data', filtered_df)
