@@ -260,4 +260,5 @@ with st.sidebar:
   X = df.drop(columns=['Exam_Score'])  # Contoh, jika 'Exam_Score' adalah target
   input_penguins = pd.concat([input_df, X], axis=0)
 
-  input_penguins
+input_df
+
