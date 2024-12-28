@@ -291,51 +291,51 @@ with st.sidebar:
     filtered_df = filtered_df[filtered_df['Parental_Involvement'] == Parental_Involvement]
 
   if Access_to_Resources != 'All':
-    filtered_df = filtered_df[filtered_df['Access_to_Resources'] == isin(Access_to_Resources)]
+    filtered_df = filtered_df[filtered_df['Access_to_Resources'] == Access_to_Resources]
 
   if Extracurricular_Activities != 'All':
-    filtered_df = filtered_df[filtered_df['Extracurricular_Activities'] == isin(Extracurricular_Activities)]
+    filtered_df = filtered_df[filtered_df['Extracurricular_Activities'] == Extracurricular_Activities]
 
   filtered_df = filtered_df[(filtered_df['Sleep_Hours'] >= Sleep_Hours[0]) & (df['Sleep_Hours'] <= Sleep_Hours[1])]
 
   filtered_df = filtered_df[(filtered_df['Previous_Scores'] >= Previous_Scores[0]) & (df['Previous_Scores'] <= Previous_Scores[1])]
   
   if Motivation_Level != 'All':
-    filtered_df = filtered_df[filtered_df['Motivation_Level'] == isin(Motivation_Level)]
+    filtered_df = filtered_df[filtered_df['Motivation_Level'] == Motivation_Level]
 
   if Internet_Access != 'All':
-    filtered_df = filtered_df[filtered_df['Internet_Access'] == isin(Internet_Access)]
+    filtered_df = filtered_df[filtered_df['Internet_Access'] == Internet_Access]
 
   filtered_df = filtered_df[(filtered_df['Tutoring_Sessions'] >= Tutoring_Sessions[0]) & (df['Tutoring_Sessions'] <= Tutoring_Sessions[1])]
   
   if Family_Income != 'All':
-    filtered_df = filtered_df[filtered_df['Family_Income'] == isin(Family_Income)]
+    filtered_df = filtered_df[filtered_df['Family_Income'] == Family_Income]
 
   # Filter by teacher quality
   if Teacher_Quality != 'All':
-    filtered_df = filtered_df[filtered_df['Teacher_Quality'] == isin(Teacher_Quality)]
+    filtered_df = filtered_df[filtered_df['Teacher_Quality'] == Teacher_Quality]
 
   if School_Type != 'All':
-    filtered_df = filtered_df[filtered_df['School_Type'] == isin(School_Type)]
+    filtered_df = filtered_df[filtered_df['School_Type'] == School_Type]
 
   if Peer_Influence != 'All':
-    filtered_df = filtered_df[filtered_df['Peer_Influence'] == isin(Peer_Influence)]
+    filtered_df = filtered_df[filtered_df['Peer_Influence'] == Peer_Influence]
 
   filtered_df = filtered_df[(filtered_df['Physical_Activity'] >= Physical_Activity[0]) & (df['Physical_Activity'] <= Physical_Activity[1])]
 
   if Learning_Disabilities != 'All':
-    filtered_df = filtered_df[filtered_df['Learning_Disabilities'] == isin(Learning_Disabilities)]
+    filtered_df = filtered_df[filtered_df['Learning_Disabilities'] == Learning_Disabilities]
 
   # Filter by parental education level
   if Parental_Education_Level != 'All':
-    filtered_df = filtered_df[filtered_df['Parental_Education_Level'] == isin(Parental_Education_Level)]
+    filtered_df = filtered_df[filtered_df['Parental_Education_Level'] == Parental_Education_Level]
 
   # Filter by distance from home
   if Distance_from_Home != 'All':
-    filtered_df = filtered_df[filtered_df['Distance_from_Home'] == isin(Distance_from_Home)]
+    filtered_df = filtered_df[filtered_df['Distance_from_Home'] == Distance_from_Home]
 
   if Gender != 'All':
-    filtered_df = filtered_df[filtered_df['Gender'] == isin(Gender)]
+    filtered_df = filtered_df[filtered_df['Gender'] == Gender]
    
   filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (df['Attendance'] <= Attendance[1])]
 
