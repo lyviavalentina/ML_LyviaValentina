@@ -234,9 +234,9 @@ with st.sidebar:
     max_value=100,
     value=(65, 95)  # Rentang default sebagai tuple (min, max)
 )
-  Parental_Involvement = st.pills('Parental Involvement', ('Low', 'Medium', 'High'))
-  Access_to_Resources = st.pills('Access to Resources', ('Low', 'Medium', 'High'))
-  Extracurricular_Activities = st.pills('Extracurricular Activities', ('Yes', 'No'))
+  Parental_Involvement = st.pills('Parental Involvement', ('Low', 'Medium', 'High'), selection_mode="single")
+  Access_to_Resources = st.pills('Access to Resources', ('Low', 'Medium', 'High'), selection_mode="single")
+  Extracurricular_Activities = st.pills('Extracurricular Activities', ('Yes', 'No'), selection_mode="single")
   Sleep_Hours = st.slider('Sleep Hours Range', 
                           min_value=4, 
                           max_value=10, 
@@ -245,24 +245,24 @@ with st.sidebar:
                               min_value=50, 
                               max_value=100, 
                               value=(55, 95))
-  Motivation_Level = st.pills('Motivation Level', ('Low', 'Medium', 'High'))
-  Internet_Access = st.pills('Internet Access', ('Yes', 'No'))
+  Motivation_Level = st.pills('Motivation Level', ('Low', 'Medium', 'High'), selection_mode="single")
+  Internet_Access = st.pills('Internet Access', ('Yes', 'No'), selection_mode="single")
   Tutoring_Sessions = st.slider('Tutoring Sessions Range', 
                                 min_value=0, 
                                 max_value=8, 
                                 value=(1, 7))
-  Family_Income = st.pills('Family Income', ('Low', 'Medium', 'High'))
-  Teacher_Quality = st.pills('Teacher Quality', ('Low', 'Medium', 'High'))
-  School_Type = st.pills('School Type', ('Public', 'Private'))
-  Peer_Influence = st.pills('Peer Influence', ('Positive', 'Neutral', 'Negative'))
+  Family_Income = st.pills('Family Income', ('Low', 'Medium', 'High'), selection_mode="single")
+  Teacher_Quality = st.pills('Teacher Quality', ('Low', 'Medium', 'High'), selection_mode="single")
+  School_Type = st.pills('School Type', ('Public', 'Private'), selection_mode="single")
+  Peer_Influence = st.pills('Peer Influence', ('Positive', 'Neutral', 'Negative'), selection_mode="single")
   Physical_Activity = st.slider('Physical Activity Range', 
                                 min_value=0, 
                                 max_value=6, 
                                 value=(1, 5))
-  Learning_Disabilities = st.pills('Learning Disabilities', ('Yes', 'No'))
-  Parental_Education_Level = st.pills('Parental Education Level', ('High School', 'College', 'Postgraduate'))
-  Distance_from_Home = st.pills('Distance from Home', ('Near', 'Moderate', 'Far'))
-  Gender = st.pills('Gender', ('Male', 'Female'))
+  Learning_Disabilities = st.pills('Learning Disabilities', ('Yes', 'No'), selection_mode="single")
+  Parental_Education_Level = st.pills('Parental Education Level', ('High School', 'College', 'Postgraduate'), selection_mode="single")
+  Distance_from_Home = st.pills('Distance from Home', ('Near', 'Moderate', 'Far'), selection_mode="single")
+  Gender = st.pills('Gender', ('Male', 'Female'), selection_mode="single")
 
   data = {'Hours_Studied': Hours_Studied,
           'Attendance': Attendance,
