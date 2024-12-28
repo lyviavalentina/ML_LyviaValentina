@@ -234,9 +234,9 @@ with st.sidebar:
     max_value=100,
     value=(65, 95)  # Rentang default sebagai tuple (min, max)
 )
-  Parental_Involvement = st.pills('Parental Involvement', ('Low', 'Medium', 'High'), selection_mode="single")
-  Access_to_Resources = st.pills('Access to Resources', ('Low', 'Medium', 'High'), selection_mode="single")
-  Extracurricular_Activities = st.pills('Extracurricular Activities', ('Yes', 'No'), selection_mode="single")
+  Parental_Involvement = st.multiselect('Parental Involvement', ['Low', 'Medium', 'High'], ['Low'])
+  Access_to_Resources = st.multiselect('Access to Resources', ['Low', 'Medium', 'High'], ['Low'])
+  Extracurricular_Activities = st.multiselect('Extracurricular Activities', ['Yes', 'No'], ['Yes'])
   Sleep_Hours = st.slider('Sleep Hours Range', 
                           min_value=4, 
                           max_value=10, 
