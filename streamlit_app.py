@@ -245,24 +245,24 @@ with st.sidebar:
                               min_value=50, 
                               max_value=100, 
                               value=(55, 95))
-  Motivation_Level = st.pills('Motivation Level', ('Low', 'Medium', 'High'), selection_mode="single")
-  Internet_Access = st.pills('Internet Access', ('Yes', 'No'), selection_mode="single")
+  Motivation_Level = st.multiselect('Motivation Level', ['Low', 'Medium', 'High'], ['Low'])
+  Internet_Access = st.multiselect('Internet Access', ['Yes', 'No'], ['Yes'])
   Tutoring_Sessions = st.slider('Tutoring Sessions Range', 
                                 min_value=0, 
                                 max_value=8, 
                                 value=(1, 7))
-  Family_Income = st.pills('Family Income', ('Low', 'Medium', 'High'), selection_mode="single")
-  Teacher_Quality = st.pills('Teacher Quality', ('Low', 'Medium', 'High'), selection_mode="single")
-  School_Type = st.pills('School Type', ('Public', 'Private'), selection_mode="single")
-  Peer_Influence = st.pills('Peer Influence', ('Positive', 'Neutral', 'Negative'), selection_mode="single")
+  Family_Income = st.multiselect('Family Income', ['Low', 'Medium', 'High'], ['Low'])
+  Teacher_Quality = st.multiselect('Teacher Quality', ['Low', 'Medium', 'High'], ['Low'])
+  School_Type = st.multiselect('School Type', ['Public', 'Private'], ['Public'])
+  Peer_Influence = st.multiselect('Peer Influence', ['Positive', 'Neutral', 'Negative'], ['Positive'])
   Physical_Activity = st.slider('Physical Activity Range', 
                                 min_value=0, 
                                 max_value=6, 
                                 value=(1, 5))
-  Learning_Disabilities = st.pills('Learning Disabilities', ('Yes', 'No'), selection_mode="single")
-  Parental_Education_Level = st.pills('Parental Education Level', ('High School', 'College', 'Postgraduate'), selection_mode="single")
-  Distance_from_Home = st.pills('Distance from Home', ('Near', 'Moderate', 'Far'), selection_mode="single")
-  Gender = st.pills('Gender', ('Male', 'Female'), selection_mode="single")
+  Learning_Disabilities = st.multiselect('Learning Disabilities', ['Yes', 'No'], ['Yes'])
+  Parental_Education_Level = st.multiselect('Parental Education Level', ['High School', 'College', 'Postgraduate'], ['High School'])
+  Distance_from_Home = st.multiselect('Distance from Home', ['Near', 'Moderate', 'Far'], ['Near'])
+  Gender = st.multiselect('Gender', ['Male', 'Female'], ['Male'])
 
   data = {'Hours_Studied': Hours_Studied,
           'Attendance': Attendance,
