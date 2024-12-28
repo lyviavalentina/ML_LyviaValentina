@@ -222,3 +222,39 @@ with st.expander('**Data Visualization**'):
   # Menampilkan plot
   st.pyplot(plt)
 
+with st.sidebar:
+  st.header('Input features')
+  Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
+  Attendance = st.slider('Attendance', 60, 100, 80)
+  Previous_Scores = st.slider('Previous Scores Range', 
+                              min_value=50, 
+                              max_value=100, 
+                              75)
+  School_Type = st.selectbox('School Type', ('Public', 'Private'))
+  Gender = st.selectbox('Gender', ('Male', 'Female'))
+  Exam_Score = st.slider('Exam Score', 55, 101, 80) 
+
+  data = {'Hours_Studied': Hours_Studied,
+          'Attendance': Attendance,
+          'Previous_Scores': Previous_Scores,
+          'School_Type': School_Type,
+          'Gender': Gender,
+         'Exam_Score': Exam_Score}
+  filtered_df = df.copy()
+
+  filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (df['Attendance'] <= Attendance[1])]
+
+  filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied[0]) & (df['Hours_Studied'] <= Hours_Studied[1])]
+
+  filtered_df = filtered_df[(filtered_df['Previous_Scores'] >= Previous_Scores[0]) & (df['Previous_Scores'] <= Previous_Scores[1])]
+
+  if School_Type != 'All':
+    filtered_df = filtered_df[filtered_df['School_Type'] == School_Type]
+
+  if Gender != 'All':
+    filtered_df = filtered_df[filtered_df['Gender'] == Gender]
+   
+  filtered_df = filtered_df[(filtered_df['Exam_Score'] >= Exam_Score[0]) & (df['Exam_Score'] <= Exam_Score[1])]
+
+  # Display the filtered DataFrame
+st.write('### Filtered Data', filtered_df)
