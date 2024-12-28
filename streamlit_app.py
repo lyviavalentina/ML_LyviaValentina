@@ -239,11 +239,11 @@ with st.sidebar:
          'Exam_Score': Exam_Score}
   filtered_df = df.copy()
 
-  filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance[0]) & (df['Attendance'] <= Attendance[1])]
+  filtered_df = filtered_df[(filtered_df['Attendance'] >= Attendance)]
 
-  filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied[0]) & (df['Hours_Studied'] <= Hours_Studied[1])]
+  filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied)]
 
-  filtered_df = filtered_df[(filtered_df['Previous_Scores'] >= Previous_Scores[0]) & (df['Previous_Scores'] <= Previous_Scores[1])]
+  filtered_df = filtered_df[(filtered_df['Previous_Scores'] >= Previous_Scores)]
 
   if School_Type != 'All':
     filtered_df = filtered_df[filtered_df['School_Type'] == School_Type]
@@ -251,7 +251,7 @@ with st.sidebar:
   if Gender != 'All':
     filtered_df = filtered_df[filtered_df['Gender'] == Gender]
    
-  filtered_df = filtered_df[(filtered_df['Exam_Score'] >= Exam_Score[0]) & (df['Exam_Score'] <= Exam_Score[1])]
+  filtered_df = filtered_df[(filtered_df['Exam_Score'] >= Exam_Score)]
 
   # Display the filtered DataFrame
 st.write('### Filtered Data', filtered_df)
