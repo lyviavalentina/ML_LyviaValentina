@@ -110,8 +110,8 @@ with st.expander('**Data Visualization**'):
     .encode(
         x="Exam_Score",
         y=alt.Y("Attendance", scale=alt.Scale(domain=[55, 100])),
-        size="Hours_Studied",
-        color="Attendance",
+        size="Attendance",
+        color="Exam_Score",
         tooltip=["Exam_Score", "Attendance"]
     )
   )
