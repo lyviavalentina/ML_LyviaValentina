@@ -287,7 +287,7 @@ with st.sidebar:
 
   filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied[0]) & (df['Hours_Studied'] <= Hours_Studied[1])]
 
-  if Parental_Involvement != 'All':
+  if Parental_Involvement != ['All']:
     filtered_df = filtered_df[filtered_df['Parental_Involvement'] == isin(Parental_Involvement)]
 
   if Access_to_Resources != 'All':
