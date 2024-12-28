@@ -226,10 +226,7 @@ with st.sidebar:
   st.header('Input features')
   Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
   Attendance = st.slider('Attendance', 60, 100, 80)
-  Previous_Scores = st.slider('Previous Scores Range', 
-                              min_value=50, 
-                              max_value=100, 
-                              75)
+  Previous_Scores = st.slider('Previous Scores Range', 50, 100, 75)
   School_Type = st.selectbox('School Type', ('Public', 'Private'))
   Gender = st.selectbox('Gender', ('Male', 'Female'))
   Exam_Score = st.slider('Exam Score', 55, 101, 80) 
