@@ -7,7 +7,7 @@ import altair as alt
 
 st.title('👩🏻‍🎓 Student Performance Factors Machine Learning')
 
-st.write('This is app builds a machine learning model!')
+st.write('This website was built to analyze student performance from various factors')
 
 with st.expander('**Data**'):
   st.write('**Raw Data**')
@@ -223,7 +223,7 @@ with st.expander('**Data Visualization**'):
   st.pyplot(plt)
 
 with st.sidebar:
-  st.header('Input features')
+  st.header('Search features')
   Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
   Attendance = st.slider('Attendance', 60, 100, 80)
   Previous_Scores = st.slider('Previous Scores Range', 50, 100, 75)
