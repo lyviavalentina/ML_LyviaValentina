@@ -222,6 +222,9 @@ with st.expander('**Data Visualization**'):
   # Menampilkan plot
   st.pyplot(plt)
 
+with st.expander('**Link Google Colab**'):
+  st.write('**https://colab.research.google.com/drive/1C140nHLsGMJG-Vf2eYLYqqh8evDJChmp?usp=sharing**')
+
 with st.sidebar:
   st.header('Search features')
   Hours_Studied = st.slider('Hours Studied', 1, 44, 20)
