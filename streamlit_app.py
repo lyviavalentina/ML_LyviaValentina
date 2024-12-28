@@ -234,9 +234,9 @@ with st.sidebar:
     max_value=100,
     value=(65, 95)  # Rentang default sebagai tuple (min, max)
 )
-  Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
-  Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
-  Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
+  Parental_Involvement = st.pills('Parental Involvement', ('Low', 'Medium', 'High'))
+  Access_to_Resources = st.pills('Access to Resources', ('Low', 'Medium', 'High'))
+  Extracurricular_Activities = st.pills('Extracurricular Activities', ('Yes', 'No'))
   Sleep_Hours = st.slider('Sleep Hours Range', 
                           min_value=4, 
                           max_value=10, 
@@ -245,24 +245,24 @@ with st.sidebar:
                               min_value=50, 
                               max_value=100, 
                               value=(55, 95))
-  Motivation_Level = st.selectbox('Motivation Level', ('Low', 'Medium', 'High'))
-  Internet_Access = st.selectbox('Internet Access', ('Yes', 'No'))
+  Motivation_Level = st.pills('Motivation Level', ('Low', 'Medium', 'High'))
+  Internet_Access = st.pills('Internet Access', ('Yes', 'No'))
   Tutoring_Sessions = st.slider('Tutoring Sessions Range', 
                                 min_value=0, 
                                 max_value=8, 
                                 value=(1, 7))
-  Family_Income = st.selectbox('Family Income', ('Low', 'Medium', 'High'))
-  Teacher_Quality = st.selectbox('Teacher Quality', ('Low', 'Medium', 'High'))
-  School_Type = st.selectbox('School Type', ('Public', 'Private'))
-  Peer_Influence = st.selectbox('Peer Influence', ('Positive', 'Neutral', 'Negative'))
+  Family_Income = st.pills('Family Income', ('Low', 'Medium', 'High'))
+  Teacher_Quality = st.pills('Teacher Quality', ('Low', 'Medium', 'High'))
+  School_Type = st.pills('School Type', ('Public', 'Private'))
+  Peer_Influence = st.pills('Peer Influence', ('Positive', 'Neutral', 'Negative'))
   Physical_Activity = st.slider('Physical Activity Range', 
                                 min_value=0, 
                                 max_value=6, 
                                 value=(1, 5))
-  Learning_Disabilities = st.selectbox('Learning Disabilities', ('Yes', 'No'))
-  Parental_Education_Level = st.selectbox('Parental Education Level', ('High School', 'College', 'Postgraduate'))
-  Distance_from_Home = st.selectbox('Distance from Home', ('Near', 'Moderate', 'Far'))
-  Gender = st.selectbox('Gender', ('Male', 'Female'))
+  Learning_Disabilities = st.pills('Learning Disabilities', ('Yes', 'No'))
+  Parental_Education_Level = st.pills('Parental Education Level', ('High School', 'College', 'Postgraduate'))
+  Distance_from_Home = st.pills('Distance from Home', ('Near', 'Moderate', 'Far'))
+  Gender = st.pills('Gender', ('Male', 'Female'))
 
   data = {'Hours_Studied': Hours_Studied,
           'Attendance': Attendance,
