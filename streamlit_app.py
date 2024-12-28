@@ -234,9 +234,9 @@ with st.sidebar:
     max_value=100,
     value=(65, 95)  # Rentang default sebagai tuple (min, max)
 )
-  Parental_Involvement = st.multiselect('Parental Involvement', ['Low', 'Medium', 'High'], ['Low'])
-  Access_to_Resources = st.multiselect('Access to Resources', ['Low', 'Medium', 'High'], ['Low'])
-  Extracurricular_Activities = st.multiselect('Extracurricular Activities', ['Yes', 'No'], ['Yes'])
+  Parental_Involvement = st.selectbox('Parental Involvement', ('Low', 'Medium', 'High'))
+  Access_to_Resources = st.selectbox('Access to Resources', ('Low', 'Medium', 'High'))
+  Extracurricular_Activities = st.selectbox('Extracurricular Activities', ('Yes', 'No'))
   Sleep_Hours = st.slider('Sleep Hours Range', 
                           min_value=4, 
                           max_value=10, 
@@ -245,24 +245,24 @@ with st.sidebar:
                               min_value=50, 
                               max_value=100, 
                               value=(55, 95))
-  Motivation_Level = st.multiselect('Motivation Level', ['Low', 'Medium', 'High'], ['Low'])
-  Internet_Access = st.multiselect('Internet Access', ['Yes', 'No'], ['Yes'])
+  Motivation_Level = st.selectbox('Motivation Level', ('Low', 'Medium', 'High'))
+  Internet_Access = st.selectbox('Internet Access', ('Yes', 'No'))
   Tutoring_Sessions = st.slider('Tutoring Sessions Range', 
                                 min_value=0, 
                                 max_value=8, 
                                 value=(1, 7))
-  Family_Income = st.multiselect('Family Income', ['Low', 'Medium', 'High'], ['Low'])
-  Teacher_Quality = st.multiselect('Teacher Quality', ['Low', 'Medium', 'High'], ['Low'])
-  School_Type = st.multiselect('School Type', ['Public', 'Private'], ['Public'])
-  Peer_Influence = st.multiselect('Peer Influence', ['Positive', 'Neutral', 'Negative'], ['Positive'])
+  Family_Income = st.selectbox('Family Income', ('Low', 'Medium', 'High'))
+  Teacher_Quality = st.selectbox('Teacher Quality', ('Low', 'Medium', 'High'))
+  School_Type = st.selectbox('School Type', ('Public', 'Private'))
+  Peer_Influence = st.selectbox('Peer Influence', ('Positive', 'Neutral', 'Negative'))
   Physical_Activity = st.slider('Physical Activity Range', 
                                 min_value=0, 
                                 max_value=6, 
                                 value=(1, 5))
-  Learning_Disabilities = st.multiselect('Learning Disabilities', ['Yes', 'No'], ['Yes'])
-  Parental_Education_Level = st.multiselect('Parental Education Level', ['High School', 'College', 'Postgraduate'], ['High School'])
-  Distance_from_Home = st.multiselect('Distance from Home', ['Near', 'Moderate', 'Far'], ['Near'])
-  Gender = st.multiselect('Gender', ['Male', 'Female'], ['Male'])
+  Learning_Disabilities = st.selectbox('Learning Disabilities', ('Yes', 'No'))
+  Parental_Education_Level = st.selectbox('Parental Education Level', ('High School', 'College', 'Postgraduate'))
+  Distance_from_Home = st.selectbox('Distance from Home', ('Near', 'Moderate', 'Far'))
+  Gender = st.selectbox('Gender', ('Male', 'Female'))
 
   data = {'Hours_Studied': Hours_Studied,
           'Attendance': Attendance,
@@ -287,8 +287,8 @@ with st.sidebar:
 
   filtered_df = filtered_df[(filtered_df['Hours_Studied'] >= Hours_Studied[0]) & (df['Hours_Studied'] <= Hours_Studied[1])]
 
-  if 'All' not in Parental_Involvement:
-    filtered_df = filtered_df[filtered_df['Parental_Involvement'].isin(Parental_Involvement)]
+  if Parental_Involvement != 'All':
+    filtered_df = filtered_df[filtered_df['Parental_Involvement'] == Parental_Involvement]
 
   if Access_to_Resources != 'All':
     filtered_df = filtered_df[filtered_df['Access_to_Resources'] == isin(Access_to_Resources)]
